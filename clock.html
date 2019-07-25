@@ -36,6 +36,7 @@
                 function startTime(){
 
                     var MicrosecondsElapsed = 0;
+                    document.querySelector( '#timeInMicroseconds' ).innerHTML = MicrosecondsElapsed;
 
                     intervalIdMs = setInterval( function(){
                         if( MicrosecondsElapsed == 59 ){
@@ -48,6 +49,7 @@
                         } }, 1 );
 
                     var secondsElapsed = 0;
+                    document.querySelector( '#timeInSeconds' ).innerHTML = secondsElapsed;
 
                     intervalIdS = setInterval( function(){
                         if( secondsElapsed == 59 ){
@@ -60,6 +62,7 @@
                         } }, 1000 );
 
                     var minutesElapsed = 0;
+                    document.querySelector( '#timeInMinutes' ).innerHTML = minutesElapsed;
 
                     intervalIdM = setInterval( function(){
                         if( minutesElapsed == 59 ){
@@ -72,6 +75,7 @@
                         } }, 60*1000 );
 
                     var hoursElapsed = 0;
+                    document.querySelector( '#timeInHours' ).innerHTML = hoursElapsed;
 
                     intervalIdH = setInterval( function(){
                         if( hoursElapsed == 23 ){
