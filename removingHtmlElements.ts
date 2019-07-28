@@ -1,3 +1,5 @@
+// link: https://stackblitz.com/edit/angular-wgzbvf
+
 import { Component } from '@angular/core';
 
 @Component({
