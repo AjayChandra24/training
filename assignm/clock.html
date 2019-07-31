@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clock</title>
+    </head>
+    <body>
+        <button id="start" style="margin-top: 25px;margin-left: 40%">Click here to start clock</button>
+        <button id="stop">Click here to stop</button>
+
+        <table style="border: 1px solid blue;text-align: center;margin-top: 50px;margin-left: 35%;font-size: 25px;">
+            <tr>
+                <th style="border: 1px solid blue">Hours </th>
+                <th style="border: 1px solid blue"> Minutes </th>
+                <th style="border: 1px solid blue"> Seconds </th>
+                <th style="border: 1px solid blue"> Milliseconds</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid blue" id="timeInHours"></td>
+                <td style="border: 1px solid blue" id="timeInMinutes"></td>
+                <td style="border: 1px solid blue" id="timeInSeconds"></td>
+                <td style="border: 1px solid blue" id="timeInMicroseconds"></td>
+            </tr>
+        </table>
+    </body>
+    <script>
+                var startButton = document.querySelector('#start');
+                var stopButton = document.querySelector('#stop');
+                startButton.addEventListener( 'click', startTime );
+                stopButton.addEventListener( 'click', stopTime );
+                var intervalIdMs = null;
+                var intervalIdS = null;
+                var intervalIdM = null;
+                var intervalIdH = null; 
+                function startTime(){
+                    var MicrosecondsElapsed = 00;
+                    document.querySelector( '#timeInMicroseconds' ).innerHTML = MicrosecondsElapsed;
+                    intervalIdMs = setInterval( function(){
+                        if( MicrosecondsElapsed == 59 ){
+                            MicrosecondsElapsed = 00;
+                            document.querySelector( '#timeInMicroseconds' ).innerHTML = MicrosecondsElapsed;
+                        }
+                        else {
+                            MicrosecondsElapsed++;
+                            document.querySelector( '#timeInMicroseconds' ).innerHTML = MicrosecondsElapsed;
+                        } }, 1 );
+                    var secondsElapsed = 00;
+                    document.querySelector( '#timeInSeconds' ).innerHTML = secondsElapsed;
+                    intervalIdS = setInterval( function(){
+                        if( secondsElapsed == 59 ){
+                            secondsElapsed = 00;
+                            document.querySelector( '#timeInSeconds' ).innerHTML = secondsElapsed;
+                        }
+                        else {
+                            secondsElapsed++;
+                            document.querySelector( '#timeInSeconds' ).innerHTML = secondsElapsed;
+                        } }, 1000 );
+                    var minutesElapsed = 00;
+                    document.querySelector( '#timeInMinutes' ).innerHTML = minutesElapsed;
+                    intervalIdM = setInterval( function(){
+                        if( minutesElapsed == 59 ){
+                            minutesElapsed = 00;
+                            document.querySelector( '#timeInMinutes' ).innerHTML = minutesElapsed;
+                        }
+                        else {
+                            minutesElapsed++;
+                            document.querySelector( '#timeInMinutes' ).innerHTML = minutesElapsed;
+                        } }, 60*1000 );
+                    var hoursElapsed = 00;
+                    document.querySelector( '#timeInHours' ).innerHTML = hoursElapsed;
+                    intervalIdH = setInterval( function(){
+                        if( hoursElapsed == 23 ){
+                            hoursElapsed = 00;
+                            document.querySelector( '#timeInHours' ).innerHTML = hoursElapsed;
+                        }
+                        else {
+                            hoursElapsed++;
+                            document.querySelector( '#timeInHours' ).innerHTML = hoursElapsed;
+                        } }, 60*60*1000 );
+                }
+                function stopTime(){
+                    clearInterval(intervalIdMs)
+                    clearInterval(intervalIdS);
+                    clearInterval(intervalIdM);
+                    clearInterval(intervalIdH);
+                }
+        </script>
+</html>
