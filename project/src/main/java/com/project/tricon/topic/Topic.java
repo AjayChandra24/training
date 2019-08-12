@@ -1,12 +1,12 @@
 package com.project.tricon.topic;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Topic {
 	
-	@Id
+	//@Id
 	private String id;
 	private String name;
 	private String description;

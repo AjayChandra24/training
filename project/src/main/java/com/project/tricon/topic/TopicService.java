@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TopicService {
 	
-	@Autowired
-	private TopicRepository topicRepository;
+	//@Autowired
+	//private TopicRepository topicRepository;
 	
 	private List<Topic> topics = new ArrayList<>(Arrays.asList(
 			new Topic( "Spring","Spring framework","spring desc" ),
@@ -20,11 +20,11 @@ public class TopicService {
 			));
 	
 	public List<Topic> getAllTopics(){
-		//return topics;
-	List<Topic> topics = new ArrayList<>();
+		return topics;
+	/*List<Topic> topics = new ArrayList<>();
 		topicRepository.findAll()
 		.forEach(topics::add);
-		return topics;
+		return topics;*/
 	}
 	
 	public Topic getTopic( String id ) {
@@ -34,8 +34,8 @@ public class TopicService {
 	}
 
 	public void addTopic(Topic topic) {
-		//topics.add(topic);
-		topicRepository.save(topic);
+		topics.add(topic);
+		/*topicRepository.save(topic);*/
 		
 	}
 
