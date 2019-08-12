@@ -1,4 +1,4 @@
-package com.project.tricon.topic;
+package com.project.tricon.course;
 
 import java.util.ArrayList;
 //import java.util.Arrays;
@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TopicService {
+public class CourseService {
 	
 	@Autowired
-	private TopicRepository topicRepository;
+	private CourseRepository courseRepository;
 	
 	/*private List<Topic> topics = new ArrayList<>(Arrays.asList(
 			new Topic( "Spring","Spring framework","spring desc" ),
@@ -21,28 +21,28 @@ public class TopicService {
 			new Topic( "js","js framework","js desc" )
 			));*/
 	
-	public List<Topic> getAllTopics(){
+	public List<Course> getAllCourses(String topicId){
 		//return topics;
-	List<Topic> topics = new ArrayList<>();
-		topicRepository.findAll()
-		.forEach(topics::add);
-		return topics;
+	List<Course> courses = new ArrayList<>();
+		courseRepository.findByTopicId(topicId)
+		.forEach(courses::add);
+		return courses;
 	}
 	
-	public Optional<Topic> getTopic( String id ) {
+	public Optional<Course> getCourse( String id ) {
 		
 		//return topics.stream().filter(t -> t.getId().contentEquals(id)).findFirst().get();
-		return topicRepository.findById(id);
+		return courseRepository.findById(id);
 		
 	}
 
-	public void addTopic(Topic topic) {
+	public void addCourse(Course course) {
 		//topics.add(topic);
-		topicRepository.save(topic);
+		courseRepository.save(course);
 		
 	}
 
-	public void updateTopic(String id, Topic topic) {
+	public void updateCourse(Course course) {
 		/*for( int i = 0; i < topics.size(); i++ ) {
 			Topic t = topics.get(i);
 			if( t.getId().equals(id) ) {
@@ -51,13 +51,13 @@ public class TopicService {
 			}
 		}*/
 		
-		topicRepository.save(topic);
+		courseRepository.save(course);
 		
 	}
 
-	public void deleteTopic(String id) {
+	public void deleteCourse(String id) {
 		//topics.removeIf( t -> t.getId().equals(id));
-		topicRepository.deleteById(id);
+		courseRepository.deleteById(id);
 	}
 	
 }

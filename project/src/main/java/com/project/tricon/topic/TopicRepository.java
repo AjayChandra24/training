@@ -1,9 +1,9 @@
-//package com.project.tricon.topic;
-//
-//import org.springframework.data.repository.CrudRepository;
-//
-//public interface TopicRepository extends CrudRepository<Topic, String> {
-//	
-//	
-//
-//}
+package com.project.tricon.topic;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface TopicRepository extends CrudRepository<Topic, String> {
+	
+	
+
+}
